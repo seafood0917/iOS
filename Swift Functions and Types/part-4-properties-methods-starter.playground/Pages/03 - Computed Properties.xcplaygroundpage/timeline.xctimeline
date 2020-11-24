@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Timeline
+   version = "3.0">
+   <TimelineItems>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/daesik/Desktop/iOS/Swift%20Functions%20and%20Types/part-4-properties-methods-starter.playground/Pages/03%20-%20Computed%20Properties.xcplaygroundpage#CharacterRangeLen=1259&amp;CharacterRangeLoc=93&amp;EndingColumnNumber=0&amp;EndingLineNumber=52&amp;StartingColumnNumber=0&amp;StartingLineNumber=4&amp;Timestamp=627826504.769066"
+         lockedSize = "{175, 130}"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/daesik/Desktop/iOS/Swift%20Functions%20and%20Types/part-4-properties-methods-starter.playground/Pages/03%20-%20Computed%20Properties.xcplaygroundpage#CharacterRangeLen=1259&amp;CharacterRangeLoc=93&amp;EndingColumnNumber=0&amp;EndingLineNumber=52&amp;StartingColumnNumber=0&amp;StartingLineNumber=4&amp;Timestamp=627826504.772994"
+         lockedSize = "{175, 50}"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+      <LoggerValueHistoryTimelineItem
+         documentLocation = "file:///Users/daesik/Desktop/iOS/Swift%20Functions%20and%20Types/part-4-properties-methods-starter.playground/Pages/03%20-%20Computed%20Properties.xcplaygroundpage#CharacterRangeLen=32&amp;CharacterRangeLoc=1317&amp;EndingColumnNumber=32&amp;EndingLineNumber=49&amp;StartingColumnNumber=0&amp;StartingLineNumber=49&amp;Timestamp=627826504.773677"
+         selectedRepresentationIndex = "0"
+         shouldTrackSuperviewWidth = "NO">
+      </LoggerValueHistoryTimelineItem>
+   </TimelineItems>
+</Timeline>
