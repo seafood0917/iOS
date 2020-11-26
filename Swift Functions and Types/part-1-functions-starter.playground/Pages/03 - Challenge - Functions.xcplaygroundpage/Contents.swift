@@ -13,6 +13,18 @@
 */
 
 // TODO: Write solution here
+func challenge(first: String, last: String = "Choi") -> String {
+    return first + last
+}
 
+let name = challenge(first: "Daesik")
 
+func second(name: String, word2 word: String = "Meow") -> String {
+    let adj = ["Boo", "Poo", "Koo"].randomElement()!
+    let end = ["ly", "sh", "ing"].randomElement()!
+    
+    return adj + name.lowercased() + word + end
+}
+
+let name2 = second(name: "DAESIK")
 //: [⇒ Next: 04 - Overloading](@next)

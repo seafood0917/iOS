@@ -2,14 +2,39 @@
 //: ## Episode 07 - Functions as Parameters
 
 //: Functions are data types, and can be assigned to variables and constants just like `Int` and `String`.
+func add(num1: Int, num2: Int) -> Int {
+    num1 + num2
+}
 
+var function = add
+function(4, 2)
 
+func subtract(num1: Int, num2: Int) -> Int {
+    num1 - num2
+}
 
-
-
+function = subtract
+function(4, 2)
 //: Functions can use functions as parameter and return types. Functions that do this are called  "higher-order functions"
+func printResult(_ operate: (Int, Int) -> Int, _ a: Int, _ b: Int) {
+    let result = operate(a, b)
+    print(result)
+}
 
+printResult(add, 4, 2)
+printResult(subtract, 4, 2)
+printResult(+, 4, 2)
+printResult(-, 4, 2)
+printResult(*, 4, 2)
 
+typealias Operate = (Double, Double) -> Double
+
+func printResult(_ operate: Operate, _ a: Double, _ b: Double) {
+    let result = operate(a, b)
+    print(result)
+}
+
+printResult(*, 4.2, 2)
 
 
 
