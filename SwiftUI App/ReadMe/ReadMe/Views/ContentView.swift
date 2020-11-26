@@ -25,17 +25,12 @@ struct BookRow: View {
             destination: DetailView(book: book)
         ) {
             HStack {
-                Book.Image(title: book.title)
+                Book.Image(title: book.title, size: 80)
                 
-                VStack(alignment: .leading) {
-                    Text(book.title)
-                        .font(.title2)
-                    Text(book.author)
-                        .font(.title3)
-                        .foregroundColor(.secondary)
-                }
+                TitleAndAuthorStack(book: book, titleFont: .title2, authorFont: .title3)
+                    .lineLimit(1)
             }
-            .lineLimit(1)
+
         }
     }
 }
