@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A047D84257243A200A2A0AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A047D83257243A200A2A0AC /* ContentView.swift */; };
+		5AC8E427257253450063E7C7 /* PHPickerViewController.View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC8E426257253450063E7C7 /* PHPickerViewController.View.swift */; };
 		8E9642D9256F8CCC0021C5F9 /* ReadMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9642D8256F8CCC0021C5F9 /* ReadMeApp.swift */; };
-		8E9642DB256F8CCC0021C5F9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9642DA256F8CCC0021C5F9 /* ContentView.swift */; };
 		8E9642DD256F8CD00021C5F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9642DC256F8CD00021C5F9 /* Assets.xcassets */; };
 		8E9642E0256F8CD00021C5F9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9642DF256F8CD00021C5F9 /* Preview Assets.xcassets */; };
 		8E9642E9256F921F0021C5F9 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9642E8256F921E0021C5F9 /* Book.swift */; };
@@ -18,9 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A047D83257243A200A2A0AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5AC8E426257253450063E7C7 /* PHPickerViewController.View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerViewController.View.swift; sourceTree = "<group>"; };
 		8E9642D5256F8CCC0021C5F9 /* ReadMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReadMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E9642D8256F8CCC0021C5F9 /* ReadMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMeApp.swift; sourceTree = "<group>"; };
-		8E9642DA256F8CCC0021C5F9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8E9642DC256F8CD00021C5F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E9642DF256F8CD00021C5F9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E9642E1256F8CD00021C5F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +43,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AAA0B8A25724597009CEBAE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A047D83257243A200A2A0AC /* ContentView.swift */,
+				8E9642EC256F92BC0021C5F9 /* BooksViews.swift */,
+				8E9642FA256FD8980021C5F9 /* DetailView.swift */,
+				5AC8E426257253450063E7C7 /* PHPickerViewController.View.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8E9642CC256F8CCB0021C5F9 = {
 			isa = PBXGroup;
 			children = (
@@ -63,7 +76,7 @@
 				8E9642D8256F8CCC0021C5F9 /* ReadMeApp.swift */,
 				8E9642E8256F921E0021C5F9 /* Book.swift */,
 				8E9642F4256FCA470021C5F9 /* Library.swift */,
-				8E9642EB256F92AB0021C5F9 /* Views */,
+				5AAA0B8A25724597009CEBAE /* Views */,
 				8E9642DC256F8CD00021C5F9 /* Assets.xcassets */,
 				8E9642E1256F8CD00021C5F9 /* Info.plist */,
 				8E9642DE256F8CD00021C5F9 /* Preview Content */,
@@ -77,16 +90,6 @@
 				8E9642DF256F8CD00021C5F9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		8E9642EB256F92AB0021C5F9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8E9642DA256F8CCC0021C5F9 /* ContentView.swift */,
-				8E9642EC256F92BC0021C5F9 /* BooksViews.swift */,
-				8E9642FA256FD8980021C5F9 /* DetailView.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,10 +161,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E9642DB256F8CCC0021C5F9 /* ContentView.swift in Sources */,
+				5A047D84257243A200A2A0AC /* ContentView.swift in Sources */,
 				8E9642FB256FD8980021C5F9 /* DetailView.swift in Sources */,
 				8E9642D9256F8CCC0021C5F9 /* ReadMeApp.swift in Sources */,
 				8E9642E9256F921F0021C5F9 /* Book.swift in Sources */,
+				5AC8E427257253450063E7C7 /* PHPickerViewController.View.swift in Sources */,
 				8E9642ED256F92BD0021C5F9 /* BooksViews.swift in Sources */,
 				8E9642F5256FCA470021C5F9 /* Library.swift in Sources */,
 			);

@@ -24,27 +24,53 @@
 /// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-/// THE SOFTWARE.dd
+/// THE SOFTWARE.
 
-import class UIKit.UIImage
+import PhotosUI
+import SwiftUI
 
-struct Library {
-  var sortedBooks: [Book] { booksCache }
+extension PHPickerViewController {
+  struct View {
+    @Binding var image: UIImage?
+  }
+}
 
-  /// An in-memory cache of the manually-sorted books that are persistently stored.
-  private var booksCache: [Book] = [
-    .init(title: "Ein Neues Land", author: "Shaun Tan"),
-    .init(title: "Bosch", author: "Laurinda Dixon"),
-    .init(title: "Dare to Lead", author: "Brené Brown"),
-    .init(title: "Blasting for Optimum Health Recipe Book", author: "NutriBullet"),
-    .init(title: "Drinking with the Saints", author: "Michael P. Foley"),
-    .init(title: "A Guide to Tea", author: "Adagio Teas"),
-    .init(title: "The Life and Complete Work of Francisco Goya", author: "P. Gassier & J Wilson"),
-    .init(title: "Lady Cottington's Pressed Fairy Book", author: "Lady Cottington"),
-    .init(title: "How to Draw Cats", author: "Janet Rancan"),
-    .init(title: "Drawing People", author: "Barbara Bradley"),
-    .init(title: "What to Say When You Talk to Yourself", author: "Shad Helmstetter")
-  ]
-    
-    var uiImages: [Book: UIImage] = [:]
+// MARK: - UIViewControllerRepresentable
+extension PHPickerViewController.View: UIViewControllerRepresentable {
+  func makeCoordinator() -> some PHPickerViewControllerDelegate {
+    PHPickerViewController.Delegate(image: $image)
+  }
+
+  func makeUIViewController(context: Context) -> PHPickerViewController {
+    let picker = PHPickerViewController( configuration: .init() )
+    picker.delegate = context.coordinator
+    return picker
+  }
+
+  func updateUIViewController(_: UIViewControllerType, context _: Context) { }
+}
+
+// MARK: - PHPickerViewControllerDelegate
+extension PHPickerViewController.Delegate: PHPickerViewControllerDelegate {
+  func picker(
+    _ picker: PHPickerViewController,
+    didFinishPicking results: [PHPickerResult]
+  ) {
+    results.first?.itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+      DispatchQueue.main.async { self.image = image as? UIImage }
+    }
+
+    picker.dismiss(animated: true)
+  }
+}
+
+// MARK: - private
+private extension PHPickerViewController {
+  final class Delegate {
+    init(image: Binding<UIImage?>) {
+      _image = image
+    }
+
+    @Binding var image: UIImage?
+  }
 }
