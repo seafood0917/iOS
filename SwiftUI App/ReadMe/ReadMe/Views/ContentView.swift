@@ -22,7 +22,7 @@ struct ContentView: View {
     }
 }
 
-struct BookRow: View {
+struct BookRow: View { //
     let book: Book
     @Binding var image: UIImage?
     
