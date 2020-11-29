@@ -25,18 +25,28 @@ struct TitleAndAuthorStack: View {
 
 extension Book {
     struct Image: View {
+        let uiImage: UIImage?
         let title: String
         var size: CGFloat?
+        let cornerRadius: CGFloat
         
         var body: some View {
-            let symbol = SwiftUI.Image(title: title) ?? .init(systemName: "book")
-            
-            symbol
-                .resizable()
-                .scaledToFit()
-                .frame(width: size,height: size)
-                .font(Font.title.weight(.light))
-                .foregroundColor(.secondary)
+            if let image = uiImage.map(SwiftUI.Image.init) {
+                image
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: size, height: size)
+                    .cornerRadius(cornerRadius)
+            } else {
+                let symbol = SwiftUI.Image(title: title) ?? .init(systemName: "book")
+                
+                symbol
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: size,height: size)
+                    .font(Font.title.weight(.light))
+                    .foregroundColor(.secondary)
+            }
         }
     }
 }
@@ -55,7 +65,9 @@ struct Book_Previews: PreviewProvider {
             Book.Image(title: "")
             Book.Image(title: "👊")
         }
+        .previewedInAllColorSchemes
     }
+
 }
 
 extension Image {
@@ -68,5 +80,22 @@ extension Image {
             return nil
         }
         self.init(systemName: symbolName)
+    }
+}
+
+extension Book.Image {
+    /// A preview image.
+    init(title: String) {
+        self.init(
+            uiImage: nil,
+            title: title,
+            cornerRadius: .init() // default value of CGFloat which is 0
+        )
+    }
+}
+
+extension View {
+    var previewedInAllColorSchemes: some View {
+        ForEach(ColorScheme.allCases, id: \.self, content: preferredColorScheme)
     }
 }
