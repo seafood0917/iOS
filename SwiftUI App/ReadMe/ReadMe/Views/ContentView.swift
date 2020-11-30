@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         
         NavigationView {
-            List(library.sortedBooks, id: \.self) { book in
+            List(library.sortedBooks) { book in
                 BookRow(book: book,
                         image: $library.uiImages[book])
             }
@@ -23,12 +23,14 @@ struct ContentView: View {
 }
 
 struct BookRow: View { //
-    let book: Book
+    @ObservedObject var book: Book
     @Binding var image: UIImage?
-    
+
     var body: some View {
         NavigationLink(
-            destination: DetailView(book: book, image: $image)
+            destination: DetailView(
+                book: book,
+                image: $image)
         ) {
             HStack {
                 Book.Image(
@@ -38,12 +40,26 @@ struct BookRow: View { //
                     cornerRadius: 12
                 )
                 
-                TitleAndAuthorStack(
-                    book: book,
-                    titleFont: .title2,
-                    authorFont: .title3
-                )
-                    .lineLimit(1)
+                VStack(alignment: .leading) {
+                    TitleAndAuthorStack(
+                        book: book,
+                        titleFont: .title2,
+                        authorFont: .title3
+                    )
+                    
+                    if !book.microReview.isEmpty {
+                        Spacer()
+                        Text(book.microReview)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                }
+                .lineLimit(1)
+                
+                Spacer()
+                BookmarkButton(book: book)
+                    .buttonStyle(BorderlessButtonStyle())
+                // manual override for the button style.
             }
             .padding(.vertical, 8)
         }
