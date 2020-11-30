@@ -12,6 +12,7 @@ struct ReadMeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(Library())
         }
     }
 }
