@@ -36,20 +36,44 @@ enum Section: CaseIterable {
   case finished
 }
 
+enum SortStyle: CaseIterable {
+  case title
+  case author
+  case manual
+}
+
 final class Library: ObservableObject {
-  var sortedBooks: [Book] {
-    get { booksCache }
+  @Published var sortStyle: SortStyle = .manual
+
+  /// The library's books, sorted by its `sortStyle`.
+  private(set) var sortedBooks: [Book] {
+    get {
+      switch sortStyle {
+      case .title:
+        return booksCache.sorted {
+          ["a ", "the "].reduce($0.title.lowercased()) { title, article in
+            title.without(prefix: article) ?? title
+          }
+        }
+      case .author:
+        return booksCache.sorted {
+          PersonNameComponentsFormatter().personNameComponents(from: $0.author) ?? .init()
+        }
+      case .manual:
+        return booksCache
+      }
+    }
     set {
       booksCache.removeAll { book in
         !newValue.contains(book)
       }
     }
   }
-  
-  var manuallySortedBooks: [Section: [Book]] {
+
+  private(set) var manuallySortedBooks: [Section: [Book]] {
     get {
       Dictionary(grouping: booksCache, by: \.readMe)
-      .mapKeys(Section.init)
+        .mapKeys(Section.init)
     }
     set {
       booksCache =
@@ -65,23 +89,27 @@ final class Library: ObservableObject {
     uiImages[book] = image
     storeCancellables(for: book)
   }
-  
+
   func deleteBooks(atOffsets offsets: IndexSet, section: Section?) {
     let booksBeforeDeletion = booksCache
+
     if let section = section {
       manuallySortedBooks[section]?.remove(atOffsets: offsets)
     } else {
       sortedBooks.remove(atOffsets: offsets)
     }
-    
+
     for change in booksCache.difference(from: booksBeforeDeletion) {
       if case .remove(_, let deletedBook, _) = change {
         uiImages[deletedBook] = nil
       }
     }
   }
-  
-  func moveBooks(oldOffsets: IndexSet, newOffset: Int, section: Section) {
+
+  func moveBooks(
+    oldOffsets: IndexSet, newOffset: Int,
+    section: Section
+  ) {
     manuallySortedBooks[section]?.move(fromOffsets: oldOffsets, toOffset: newOffset)
   }
 
@@ -212,8 +240,7 @@ private extension Library {
   func storeCancellables(for book: Book) {
     cancellables.formUnion([
       book.$readMe.sink { [unowned self] _ in
-        objectWillChange.send()
-        saveBooks()
+        manuallySortedBooks = manuallySortedBooks
       },
       book.$microReview.sink { [unowned self] _ in
         saveBooks()
@@ -265,6 +292,35 @@ private extension PreviewDevice {
   /// Whether this code is running in a SwiftUI preview.
   static var inXcode: Bool {
     ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+  }
+}
+
+private extension Sequence {
+  /// Sorted by a common `Comparable` value.
+  func sorted<Comparable: Swift.Comparable>(
+    _ comparable: (Element) throws -> Comparable
+  ) rethrows -> [Element] {
+    try sorted(comparable, <)
+  }
+
+  /// Sorted by a common `Comparable` value, and sorting closure.
+  func sorted<Comparable: Swift.Comparable>(
+    _ comparable: (Element) throws -> Comparable,
+    _ areInIncreasingOrder: (Comparable, Comparable) throws -> Bool
+  ) rethrows -> [Element] {
+    try sorted {
+      try areInIncreasingOrder(comparable($0), comparable($1))
+    }
+  }
+}
+
+private extension String {
+  ///- Returns: nil if not prefixed with `prefix`
+  func without(prefix: String) -> Self? {
+    guard hasPrefix(prefix)
+    else { return nil }
+
+    return .init(dropFirst(prefix.count))
   }
 }
 
@@ -320,5 +376,70 @@ private extension EncodingError {
         debugDescription: debugDescription
       )
     )
+  }
+}
+
+// MARK: - PersonNameComponents: Comparable
+
+extension PersonNameComponents: Comparable {
+  public static func < (components0: Self, components1: Self) -> Bool {
+    var fallback: Bool {
+      [\PersonNameComponents.givenName, \.middleName].contains {
+        Optional(
+          optionals: (components0[keyPath: $0], components1[keyPath: $0])
+        )
+        .map { $0.lowercased().isLessThan($1.lowercased(), whenEqual: false) }
+        ?? false
+      }
+    }
+
+    switch (
+      components0.givenName?.lowercased(), components0.familyName?.lowercased(),
+      components1.givenName?.lowercased(), components1.familyName?.lowercased()
+    ) {
+    case let (
+      _, familyName0?,
+      _, familyName1?
+    ):
+      return familyName0.isLessThan(familyName1, whenEqual: fallback)
+    case (
+      _, let familyName0?,
+      let givenName1?, nil
+    ):
+      return familyName0.isLessThan(givenName1, whenEqual: fallback)
+    case (
+      let givenName0?, nil,
+      _, let familyName1?
+    ):
+      return givenName0.isLessThan(familyName1, whenEqual: fallback)
+    default:
+      return fallback
+    }
+  }
+}
+
+private extension Comparable {
+  /// Like `<`, but with a default for the case when `==` evaluates to `true`.
+  func isLessThan(
+    _ comparable: Self,
+    whenEqual default: @autoclosure () -> Bool
+  ) -> Bool {
+    self == comparable
+    ? `default`()
+    : self < comparable
+  }
+}
+
+private extension Optional {
+  /// Exchange two optionals for a single optional tuple.
+  /// - Returns: `nil` if either tuple element is `nil`.
+  init<Wrapped0, Wrapped1>(optionals: (Wrapped0?, Wrapped1?))
+  where Wrapped == (Wrapped0, Wrapped1) {
+    switch optionals {
+    case let (wrapped0?, wrapped1?):
+      self = (wrapped0, wrapped1)
+    default:
+      self = nil
+    }
   }
 }
