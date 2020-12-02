@@ -21,11 +21,20 @@ struct ButtonView: View {
         Button(action: foodPrinter) {
           VStack {
             Image("Cat")
-                .renderingMode(.original)
                 .resizable()
                 .scaledToFit()
+                .shadow(radius: 30)
+                
             
             Text("Feed Cat!")
+                .bold()
+                .padding()
+                .background(Color.purple)
+                .foregroundColor(.primary)
+                .cornerRadius(15)
+                .shadow(radius: 10)
+                
+                
             
           }
         }
@@ -35,6 +44,11 @@ struct ButtonView: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView()
+        Group {
+            ButtonView()
+            ButtonView()
+                .colorScheme(.dark)
+        }
+       
     }
 }

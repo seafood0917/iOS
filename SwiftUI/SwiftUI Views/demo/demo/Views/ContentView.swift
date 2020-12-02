@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct UsingDocumentation: View {
     var body: some View {
 //        Text("Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!Hello, world!")
 //          .lineLimit(2)
@@ -25,6 +25,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        UsingDocumentation()
     }
 }
