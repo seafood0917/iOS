@@ -18,11 +18,16 @@ struct DatePickerView: View {
     
     var body: some View {
         VStack {
-            DatePicker(selection: $pickedDate, displayedComponents: [.date]) {
+            DatePicker(selection: $pickedDate, in: ClosedRange(uncheckedBounds: (lower: Date(), upper: Date(timeIntervalSinceNow: 900000))), displayedComponents: .date) {
                 Text("Select Date")
             }
-            
             Text("\(dateFormatter.string(from: pickedDate))")
+            
+//            DatePicker(selection: $pickedDate, displayedComponents: [.date]) {
+//                Text("Select Date")
+//            }
+            
+            
         }
     }
 }
