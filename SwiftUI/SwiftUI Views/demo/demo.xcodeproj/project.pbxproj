@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5A70528E2577BDFB005AE05F /* Documentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A70528D2577BDFB005AE05F /* Documentation.swift */; };
+		5A7052912578A2D5005AE05F /* Modifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7052902578A2D5005AE05F /* Modifier.swift */; };
+		5A7052962578A3A0005AE05F /* SliderStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7052952578A3A0005AE05F /* SliderStepper.swift */; };
+		5A7052992578AF39005AE05F /* ToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7052982578AF39005AE05F /* ToggleView.swift */; };
+		5A70529E2578B50F005AE05F /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A70529D2578B50F005AE05F /* DatePickerView.swift */; };
 		5AAC7BA02577754F00141329 /* demoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC7B9F2577754F00141329 /* demoApp.swift */; };
 		5AAC7BA22577754F00141329 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC7BA12577754F00141329 /* ContentView.swift */; };
 		5AAC7BA42577755200141329 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC7BA32577755200141329 /* Assets.xcassets */; };
@@ -18,6 +22,10 @@
 
 /* Begin PBXFileReference section */
 		5A70528D2577BDFB005AE05F /* Documentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documentation.swift; sourceTree = "<group>"; };
+		5A7052902578A2D5005AE05F /* Modifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifier.swift; sourceTree = "<group>"; };
+		5A7052952578A3A0005AE05F /* SliderStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderStepper.swift; sourceTree = "<group>"; };
+		5A7052982578AF39005AE05F /* ToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleView.swift; sourceTree = "<group>"; };
+		5A70529D2578B50F005AE05F /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		5AAC7B9C2577754F00141329 /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AAC7B9F2577754F00141329 /* demoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = demoApp.swift; sourceTree = "<group>"; };
 		5AAC7BA12577754F00141329 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,9 +87,13 @@
 			isa = PBXGroup;
 			children = (
 				5AAC7BA12577754F00141329 /* ContentView.swift */,
+				5A7052902578A2D5005AE05F /* Modifier.swift */,
 				5AAC7BAF2577A56E00141329 /* ImageView.swift */,
 				5AAC7BB92577B3C400141329 /* ButtonView.swift */,
 				5A70528D2577BDFB005AE05F /* Documentation.swift */,
+				5A7052952578A3A0005AE05F /* SliderStepper.swift */,
+				5A7052982578AF39005AE05F /* ToggleView.swift */,
+				5A70529D2578B50F005AE05F /* DatePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,9 +169,13 @@
 			files = (
 				5AAC7BA22577754F00141329 /* ContentView.swift in Sources */,
 				5AAC7BB02577A56E00141329 /* ImageView.swift in Sources */,
+				5A7052912578A2D5005AE05F /* Modifier.swift in Sources */,
+				5A70529E2578B50F005AE05F /* DatePickerView.swift in Sources */,
+				5A7052962578A3A0005AE05F /* SliderStepper.swift in Sources */,
 				5A70528E2577BDFB005AE05F /* Documentation.swift in Sources */,
 				5AAC7BBA2577B3C400141329 /* ButtonView.swift in Sources */,
 				5AAC7BA02577754F00141329 /* demoApp.swift in Sources */,
+				5A7052992578AF39005AE05F /* ToggleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
