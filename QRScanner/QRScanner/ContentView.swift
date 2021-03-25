@@ -22,10 +22,12 @@ struct ContentView: View {
                 VStack {
                     Text("Keep scanning for QR-codes")
                         .font(.subheadline)
-                    Text(self.viewModel.lastQrCode)
-                        .bold()
-                        .lineLimit(5)
-                        .padding()
+                    if let url = URL(string: self.viewModel.lastQrCode) {
+                        Link(self.viewModel.lastQrCode, destination: url)
+                            .font(.title)
+                            .lineLimit(5)
+                            .padding()
+                    }
                 }
                 .padding(.vertical, 20)
                 

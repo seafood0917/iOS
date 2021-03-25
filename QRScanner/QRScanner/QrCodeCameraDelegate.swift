@@ -30,7 +30,7 @@ class QrCodeCameraDelegate: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         foundBarcode(mockData ?? "Simulated QR-code result.")
     }
     
-    // As long as the capture session is active and a QR-code image is in view of the camera feed, new metadata objects will be constantly detected. For this, we are going to skip frames and only notifyt the parent view one per scanning interval.
+    // As long as the capture session is active and a QR-code image is in view of the camera feed, new metadata objects will be constantly detected. For this, we are going to skip frames and only notify the parent view one per scanning interval.
     func foundBarcode(_ stringValue: String) {
         let now = Date()
         if now.timeIntervalSince(lastTime) >= scanInterval {

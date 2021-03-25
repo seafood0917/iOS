@@ -75,6 +75,50 @@ struct QrCodeScannerView: UIViewRepresentable {
             }
         }
     }
+/*
+    var overlay: UIView = UIView()
+
+    func createOverlay() -> UIView {
+
+        let overlayView = UIView(frame: .zero)
+        overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+
+
+
+        let path = CGMutablePath()
+
+        path.addRoundedRect(in: CGRect(x: 15, y: overlayView.center.y-100, width: overlayView.frame.width-30, height: 200), cornerWidth: 5, cornerHeight: 5)
+
+
+        path.closeSubpath()
+
+        let shape = CAShapeLayer()
+        shape.path = path
+        shape.lineWidth = 3.0
+        shape.strokeColor = UIColor.blue.cgColor
+        shape.fillColor = UIColor.blue.cgColor
+
+        overlayView.layer.addSublayer(shape)
+
+        path.addRect(CGRect(origin: .zero, size: overlayView.frame.size))
+
+        let maskLayer = CAShapeLayer()
+        maskLayer.backgroundColor = UIColor.black.cgColor
+        maskLayer.path = path
+        maskLayer.fillRule = CAShapeLayerFillRule.evenOdd
+
+        overlayView.layer.mask = maskLayer
+        overlayView.clipsToBounds = true
+
+        return overlayView
+    }
+
+    func addTransparentOverlayWithCirlce(){
+        overlay = createOverlay()
+        view.addSubview(overlay)
+        self.view.sendSubviewToBack(overlay)
+    }
+ */
     
     func makeUIView(context: UIViewRepresentableContext<QrCodeScannerView>) -> QrCodeScannerView.UIViewType {
         let cameraView = CameraPreview(session: session)
