@@ -7,23 +7,39 @@
 
 import Foundation
 
-struct Order {
+class Order: Identifiable, Hashable, ObservableObject {
+    var storeID: UUID
+    
+    // Hashable conform
+    static func == (lhs: Order, rhs: Order) -> Bool {
+        (lhs.id == rhs.id) && (lhs.option == rhs.option)
+//        lhs.storeID == rhs.storeID
+    }
+    
+    func hash(into hasher: inout Hasher) {
+            hasher.combine(self.name)
+            hasher.combine(self.option)
+        }
+    // -------
+    
+    
     var id: UUID
     var count: Int
     var option: String
     // store's UUID to check if a user add a menu from the same store.
-//    var storeID: UUID
+    
     var price: Int
     
     var name: String
 //    var description: String
 //    var photo: Image
-    init(id: UUID = UUID(), count: Int = 0,
-         option: String = "", price: Int = 0,
-         name: String = "") {
+    init(id: UUID = UUID(), count: Int = 100,
+         option: String = "", storeID: UUID = UUID(),
+         price: Int = -100, name: String = "") {
         self.id = id
         self.count = count
         self.option = option
+        self.storeID = storeID
         self.price = price
         self.name = name
     }

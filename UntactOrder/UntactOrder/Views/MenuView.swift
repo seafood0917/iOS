@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var user: User
-    var store: Store = Store()
+    var store: Store
     var body: some View {
         VStack {
             Text(store.name)
@@ -20,12 +20,17 @@ struct MenuView: View {
                     }
                 }
             }
+            NavigationLink(
+                destination: CartView(),
+                label: {
+                    Text("CartView")
+                })
         }
     }
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView().environmentObject(User())
+        MenuView(store: Store()).environmentObject(User())
     }
 }

@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ItemView: View {
     @EnvironmentObject var user: User
-    var menu: Menu = Menu()
+    var menu: Menu
+    @State var order: Order = Order()
     @State var count: Int = 1
+    @State var price: Int = 0
+    
     var getPrice: some View {
         Text(String(menu.price) +  "원")
         
@@ -18,7 +21,11 @@ struct ItemView: View {
     var getTotalPrice: some View {
         HStack {
             Text("총 가격: ")
-//            Text(String(menu.totalPrice) + "원")
+            if self.price == 0 {
+                Text(String(menu.price) + "원")
+            } else {
+                Text(String(price) + "원")
+            }
         }
     }
     var stepper: some View {
@@ -26,15 +33,21 @@ struct ItemView: View {
             Text("수량")
             Button(action: {
                 self.count -= 1
+                self.price -= menu.price
 //                menu.totalPrice -= menu.price
             }, label: {
                 Text("-")
             })
-            .disabled(self.count < 1)
+            .disabled(self.count == 1)
             
             Text(String(count))
             Button(action: {
+                if self.count == 1 {
+                    self.price = menu.price
+                }
+                self.price += menu.price
                 self.count += 1
+                
 //                menu.totalPrice += menu.price
             }, label: {
                 Text("+")
@@ -57,7 +70,7 @@ struct ItemView: View {
                 getPrice
                 Spacer()
                 // Show options
-//                TextField("Option:", text: $menu.option)
+                TextField("Option:", text: self.$order.option)
                 
                 Spacer()
                 
@@ -66,8 +79,13 @@ struct ItemView: View {
                 getTotalPrice
                 
                 Button(action: {
+                    self.order.id = self.menu.id
+                    self.order.count = self.count
+                    self.order.price = self.price
+                    self.order.name = self.menu.name
+                    self.order.storeID = self.menu.storeID
                     print("add to cart")
-                    user.addToCart(menu: menu)
+                    user.addToCart(order: self.order)
                 }, label: {
                     Text("Add to Cart")
                         .bold()
@@ -89,7 +107,7 @@ struct ItemView: View {
 
 struct ItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemView()
+        ItemView(menu: Menu())
             .environmentObject(User())
     }
 }

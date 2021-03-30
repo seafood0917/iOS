@@ -9,30 +9,34 @@ import Foundation
 
 class User: Identifiable, ObservableObject {
     var name: String = "Dave"
-    @Published var cart: [Menu] = []
+    @Published var cart: [Order] = []
     var card: String = "Visa"
     
-    func addToCart(menu: Menu) {
+    func addToCart(order: Order) {
         if !self.cart.isEmpty {
-            if self.cart[0].storeID != menu.storeID {
+            if self.cart[0].storeID != order.storeID {
                 print("Only can add menus from the same store.")
                 print("Do you want to replace?")
                 if true {
-                    self.cart = [menu]
+                    self.cart = [order]
                 } else {
                     print("Do nothing.")
                 }
             } else {
-                if self.cart.contains(menu) {
+                if self.cart.contains(order) {
                     print("Contain")
-                    if let index = self.cart.firstIndex(of: menu) {
-                        self.cart[index].count += menu.count
+                    if let index = self.cart.firstIndex(of: order) {
+                        self.cart[index].count += order.count
                     }
+                } else {
+                    self.cart.append(order)
+                    print("Not contain")
+                    
                 }
             }
         } else {
-            self.cart.append(menu)
-            print("Not contain")
+            self.cart.append(order)
+            print("Empty")
         }
     }
 }

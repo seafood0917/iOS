@@ -15,12 +15,11 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 Text("home")
-                MenuView(store: store)
-                NavigationLink(
-                    destination: CartView(),
-                    label: {
-                        Text("CartView")
-                    })
+                NavigationLink(destination: MenuView(store: store), label: {
+                    Text("BBQ")
+                })
+//                MenuView(store: store)
+                
                 
             }
         }

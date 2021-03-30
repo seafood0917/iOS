@@ -11,18 +11,22 @@ import SwiftUI
 struct CartView: View {
     @EnvironmentObject var user: User
     
-    var menuItem: some View {
+    var orderItem: some View {
         List {
-            ForEach(user.cart, id: \.self) { menu in
-                Text(menu.name)
-                Text(String(menu.count))
+            ForEach(user.cart, id: \.self) { order in
+                HStack {
+                    Text(order.name)
+                    Text(String(order.count))
+                    Text(String(order.price))
+                    Text(order.option)
+                }
             }
         }
     }
     var body: some View {
         VStack {
             Text("가게명")
-            menuItem
+            orderItem
         }
         
         // menu name

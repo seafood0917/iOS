@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Menu: ObservableObject, Identifiable, Hashable {
+class Menu: Identifiable, Hashable {
     
     
     // Hashable conform
@@ -38,7 +38,7 @@ class Menu: ObservableObject, Identifiable, Hashable {
     init(id: UUID = UUID(), storeID: UUID = UUID(), price: Int = 20000,
          name: String = "Chicken",
          description: String = "Spicy", photo: Image = Image("chicken"),
-         option: String = "") {
+         option: String = "Extra Radish") {
         self.id = id
         self.storeID = storeID
         self.price = price
