@@ -22,7 +22,7 @@ class Order: Identifiable, Hashable, ObservableObject {
         }
     // -------
     
-    
+    var store: Store
     var id: UUID
     var count: Int
     var option: String
@@ -33,9 +33,10 @@ class Order: Identifiable, Hashable, ObservableObject {
     var name: String
 //    var description: String
 //    var photo: Image
-    init(id: UUID = UUID(), count: Int = 100,
+    init(store: Store = Store(), id: UUID = UUID(), count: Int = 100,
          option: String = "", storeID: UUID = UUID(),
          price: Int = -100, name: String = "") {
+        self.store = store
         self.id = id
         self.count = count
         self.option = option

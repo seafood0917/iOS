@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E4E2463261B4BD100FE0605 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E2462261B4BD100FE0605 /* Cart.swift */; };
 		8EE3B4FD260CD32500ADC6B1 /* UntactOrderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE3B4FC260CD32500ADC6B1 /* UntactOrderApp.swift */; };
 		8EE3B501260CD32800ADC6B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE3B500260CD32800ADC6B1 /* Assets.xcassets */; };
 		8EE3B504260CD32800ADC6B1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8EE3B503260CD32800ADC6B1 /* Preview Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E4E2462261B4BD100FE0605 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		8EE3B4F9260CD32500ADC6B1 /* UntactOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UntactOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EE3B4FC260CD32500ADC6B1 /* UntactOrderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UntactOrderApp.swift; sourceTree = "<group>"; };
 		8EE3B4FE260CD32500ADC6B1 /* ContentView_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView_.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				8EE3B567260DCE4700ADC6B1 /* Store.swift */,
 				8EE3B572260E19D500ADC6B1 /* Menu.swift */,
 				8EE3B59F2613090B00ADC6B1 /* Order.swift */,
+				8E4E2462261B4BD100FE0605 /* Cart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				8EE3B55B260DCC1600ADC6B1 /* ItemView.swift in Sources */,
 				8EE3B5852612F46800ADC6B1 /* MenuView.swift in Sources */,
 				8EE3B552260DCAEE00ADC6B1 /* ContentView_.swift in Sources */,
+				8E4E2463261B4BD100FE0605 /* Cart.swift in Sources */,
 				8EE3B506260CD32800ADC6B1 /* Persistence.swift in Sources */,
 				8EE3B563260DCD6500ADC6B1 /* User.swift in Sources */,
 				8EE3B53E260CD3A400ADC6B1 /* ContentView.swift in Sources */,

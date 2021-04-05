@@ -27,6 +27,7 @@ class User: Identifiable, ObservableObject {
                     print("Contain")
                     if let index = self.cart.firstIndex(of: order) {
                         self.cart[index].count += order.count
+                        self.cart[index].price += order.price
                     }
                 } else {
                     self.cart.append(order)
@@ -39,9 +40,15 @@ class User: Identifiable, ObservableObject {
             print("Empty")
         }
     }
+    
+    func totalPrice() -> Int {
+        var total: Int = 0
+        for order in self.cart {
+            total += order.price
+        }
+        return total
+    }
 }
 
-func CheckOut() {
-    
-}
+
 

@@ -25,8 +25,19 @@ struct CartView: View {
     }
     var body: some View {
         VStack {
-            Text("가게명")
-            orderItem
+            if !user.cart.isEmpty {
+                VStack {
+                    Text("\(user.cart[0].store.name)")
+                    orderItem
+                }
+            } else {
+                Text("카트가 비었습니다.")
+            }
+            
+            Spacer()
+            
+            Text("\(user.totalPrice())원 계산하기")
+            
         }
         
         // menu name
