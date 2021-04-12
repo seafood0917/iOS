@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E4E24E8261DF53100FE0605 /* CloudKitDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E24E7261DF53100FE0605 /* CloudKitDemoApp.swift */; };
-		8E4E24EA261DF53100FE0605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E24E9261DF53100FE0605 /* ContentView.swift */; };
+		8E4E24EA261DF53100FE0605 /* ContentView__.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E24E9261DF53100FE0605 /* ContentView__.swift */; };
 		8E4E24EC261DF53600FE0605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4E24EB261DF53600FE0605 /* Assets.xcassets */; };
 		8E4E24EF261DF53600FE0605 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4E24EE261DF53600FE0605 /* Preview Assets.xcassets */; };
 		8E4E24F1261DF53600FE0605 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E24F0261DF53600FE0605 /* Persistence.swift */; };
@@ -21,6 +21,8 @@
 		8E4E252D261EDC7800FE0605 /* CKConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E252C261EDC7800FE0605 /* CKConstant.swift */; };
 		8E4E2532261EFED300FE0605 /* CloudKitOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E2531261EFED300FE0605 /* CloudKitOperation.swift */; };
 		8E4E2538261F008F00FE0605 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E2537261F008F00FE0605 /* CloudKitManager.swift */; };
+		8E4E2540262081B300FE0605 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E253F262081B300FE0605 /* ContentView.swift */; };
+		8E4E2545262108BF00FE0605 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E2544262108BF00FE0605 /* testView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +45,7 @@
 /* Begin PBXFileReference section */
 		8E4E24E4261DF53100FE0605 /* CloudKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4E24E7261DF53100FE0605 /* CloudKitDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitDemoApp.swift; sourceTree = "<group>"; };
-		8E4E24E9261DF53100FE0605 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8E4E24E9261DF53100FE0605 /* ContentView__.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView__.swift; sourceTree = "<group>"; };
 		8E4E24EB261DF53600FE0605 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E4E24EE261DF53600FE0605 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E4E24F0261DF53600FE0605 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -62,6 +64,8 @@
 		8E4E252C261EDC7800FE0605 /* CKConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKConstant.swift; sourceTree = "<group>"; };
 		8E4E2531261EFED300FE0605 /* CloudKitOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitOperation.swift; sourceTree = "<group>"; };
 		8E4E2537261F008F00FE0605 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		8E4E253F262081B300FE0605 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8E4E2544262108BF00FE0605 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +120,7 @@
 			children = (
 				8E4E251A261DF56900FE0605 /* CloudKitDemo.entitlements */,
 				8E4E24E7261DF53100FE0605 /* CloudKitDemoApp.swift */,
-				8E4E24E9261DF53100FE0605 /* ContentView.swift */,
+				8E4E24E9261DF53100FE0605 /* ContentView__.swift */,
 				8E4E24EB261DF53600FE0605 /* Assets.xcassets */,
 				8E4E24F0261DF53600FE0605 /* Persistence.swift */,
 				8E4E24F5261DF53600FE0605 /* Info.plist */,
@@ -125,6 +129,8 @@
 				8E4E2521261EDA6900FE0605 /* Idea.swift */,
 				8E4E2527261EDB3D00FE0605 /* RecordProtocol.swift */,
 				8E4E2536261F004B00FE0605 /* CloudKit */,
+				8E4E253F262081B300FE0605 /* ContentView.swift */,
+				8E4E2544262108BF00FE0605 /* testView.swift */,
 			);
 			path = CloudKitDemo;
 			sourceTree = "<group>";
@@ -306,9 +312,11 @@
 				8E4E24F1261DF53600FE0605 /* Persistence.swift in Sources */,
 				8E4E2532261EFED300FE0605 /* CloudKitOperation.swift in Sources */,
 				8E4E24F4261DF53600FE0605 /* CloudKitDemo.xcdatamodeld in Sources */,
+				8E4E2545262108BF00FE0605 /* testView.swift in Sources */,
 				8E4E2528261EDB3D00FE0605 /* RecordProtocol.swift in Sources */,
 				8E4E2522261EDA6900FE0605 /* Idea.swift in Sources */,
-				8E4E24EA261DF53100FE0605 /* ContentView.swift in Sources */,
+				8E4E2540262081B300FE0605 /* ContentView.swift in Sources */,
+				8E4E24EA261DF53100FE0605 /* ContentView__.swift in Sources */,
 				8E4E24E8261DF53100FE0605 /* CloudKitDemoApp.swift in Sources */,
 				8E4E2538261F008F00FE0605 /* CloudKitManager.swift in Sources */,
 			);
